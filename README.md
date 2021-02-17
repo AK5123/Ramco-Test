@@ -23,7 +23,7 @@ $npm run start
 4. Notifed via alert message
 
 <h1 align="center">
-<img src="utils/asset/Upload.png" alt="Upload" width="100">
+<img src="utils/asset/Upload.png" alt="Upload" width="700">
 </h1>
 <br>
 ### To Search for Documents based on Query
@@ -34,6 +34,6 @@ $npm run start
 4. User can download required file by clicking download button adjacent to respective file names.(To prevent downloading all files)
 
 <h1 align="center">
-<img src="utils/asset/download.png" alt="Download" width="100">
+<img src="utils/asset/download.png" alt="Download" width="700">
 </h1>
 <br>
