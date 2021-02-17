@@ -26,6 +26,7 @@ $npm run start
 <img src="utils/asset/Upload.png" alt="Upload" width="700">
 </h1>
 <br>
+
 ### To Search for Documents based on Query
 
 1. Enter tags one by one.(**Click `enter` button after each tag to add multiple tags**)
