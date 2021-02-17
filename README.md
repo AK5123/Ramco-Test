@@ -38,3 +38,77 @@ $npm run start
 <img src="utils/asset/download.png" alt="Download" width="700">
 </h1>
 <br>
+
+## Sequence Diagram
+
+### To Tag and Upload Document:
+<h1 align="center">
+<img src="utils/asset/one.png" alt="Download" width="700">
+</h1>
+<br>
+
+### Retrieve Document based on Tags:
+<h1 align="center">
+<img src="utils/asset/two.png" alt="Download" width="700">
+</h1>
+<br>
+
+### No Document found for Tag list: (Alternate Scenario)
+<h1 align="center">
+<img src="utils/asset/three.png" alt="Download" width="700">
+</h1>
+<br>
+
+
+## Database Design (MondoDB Schema)
+
+<h1 align="center">
+<img src="utils/asset/main.png" alt="Download" width="700">
+</h1>
+<br>
+
+### The MongoDB contains two Collections:
+ 1. **docs** (Stores FileId and Tag mapping)
+2  **Gridfs** (To store files)
+
+#### Gridfd - stores file directly in MongoDB, used for storing files>16mb
+
+GridFS stores files in two collections:
+1. Chunks Collection stores the binary chunks. 
+2. Files Collection stores the file’s metadata. 
+
+Schema for Gridfs:
+```javascript
+
+
+// Files Collection - stores meta data
+{
+    length: (file length),
+    chunkSize: (size of each chunk),
+    filename: (name),
+    _id: (dafult),
+    contentType: (mime type),
+    uploadDate: (date&time)
+}
+
+// Chunk Collection - stores data in binary format
+{
+    fileId : (maps to _id in files collection ),
+    data: binary format,
+    n: (numbered sequentially, since large files are split into smaller chunks and stored as a collection)
+}
+
+```
+
+
+#### docs - a seperate collection of documents, contains mappinf of file id and tag list:
+
+Schema for docs:
+```javascript
+{
+    fileId : (maps to actual collection where file is stored in binary format),
+    filename: (To show metadata preview),
+    tags: (list of tags for querying)
+}
+
+```

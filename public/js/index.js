@@ -19,7 +19,7 @@ let uploadDoc = (obj,tags,taginp) => {
     fetch("http://localhost:3000/upload", requestOptions)
       .then(response => response.text())
       .then(result => {
-          console.log(result);
+          alert("Doc Uploaded!!")
           document.getElementById("inputGroupFile04").value = "";
           document.getElementById("tag-input1").value = "";
           taginp.init({
@@ -52,7 +52,10 @@ let getDoc = (tags) => {
 }
 
 let genList = (list) => {
-    console.log(list)
+    if(list.files.length === 0) {
+      alert("No doc found!!!");
+      return;
+    }
     list.files.forEach(ele => {
         let name = ele.filename;
         let url = "http://localhost:3000/docs/"+ele.fileId;
